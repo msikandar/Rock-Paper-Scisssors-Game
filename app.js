@@ -22,14 +22,25 @@ function convertToWord(letter){
 function win(userChoice,computerChoice){
 	userScore++;
 	userScore_span.innerHTML = userScore;
-	result_p.innerHTML = `${convertToWord(userChoice)} beats ${convertToWord(computerChoice)}. You Won! `;
+	const smallUserWord="user".fontsize(3).sub();
+	const smallComputerWord="comp".fontsize(3).sub();
+	result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} beats ${convertToWord(computerChoice)}${smallComputerWord} .You Won! `;
 
 }
-function lose(){
-	console.log("user loose");
+function lose(userChoice,computerChoice){
+	computerScore++;
+	computerScore_span.innerHTML = computerScore;
+	const smallUserWord="user".fontsize(3).sub();
+	const smallComputerWord="comp".fontsize(3).sub();
+	result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} loose to ${convertToWord(computerChoice)}${smallComputerWord} .You lost..! `;
+
 }
-function draw(){
-	console.log("user draw");
+function draw(userChoice,computerChoice){
+	
+	const smallUserWord="user".fontsize(3).sub();
+	const smallComputerWord="comp".fontsize(3).sub();
+	result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} equals ${convertToWord(computerChoice)}${smallComputerWord} .Its a Draw `;
+
 }
 
 function game(userChoice){
@@ -43,12 +54,12 @@ function game(userChoice){
 		case "rp":
 		case "ps":
 		case "sr":
-		lose();
+		lose(userChoice,computerChoice);
 		break;
 		case "rr":
 		case "pp":
 		case "ss":
-		draw();
+		draw(userChoice,computerChoice);
 		break;
 	}
 }
