@@ -3,7 +3,7 @@ let computerScore=0;
 const userScore_span=document.getElementById("user-score");
 const computerScore_span=document.getElementById("computer-score");
 const scoreBoard_div=document.querySelector("score-board");
-const result_div=document.querySelector(".result");
+const result_p=document.querySelector(".result>p");
 const rock_div=document.getElementById("r");
 const paper_div=document.getElementById("p");
 const scissors_div=document.getElementById("s");
@@ -17,8 +17,8 @@ function getComputerChoice(){
 function win(userChoice,computerChoice){
 	userScore++;
 	userScore_span.innerHTML = userScore;
-    console.log(userChoice);
-    console.log(computerChoice);
+    result_p.innerHTML = userChoice+" beats "+computerChoice+". You Won! ";
+
 }
 function lose(){
 	console.log("user loose");
